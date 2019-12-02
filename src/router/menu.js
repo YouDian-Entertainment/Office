@@ -1,5 +1,6 @@
 // main
 import Home from '@views/Home';
+import Excel from '@views/Excel';
 
 // demo
 import ScrollDemo from '@views/Demo/ScrollDemo';
@@ -52,7 +53,7 @@ export const MenuRouter = [{
     name: 'main-home',
     router: 'main-home',
     path: '/main-home',
-    component: Home,
+    component: Excel,
 }, {
     name: 'demo-scroll',
     router: 'demo-scroll',

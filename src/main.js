@@ -1,5 +1,5 @@
 import { app, BrowserWindow } from 'electron' // eslint-disable-line
-import { Notic, AddShortcuts, AddMenuList, AddDataBase } from './electron';
+import { Notic, AddShortcuts, AddMenuList, AddDataBase, AddOpenFile } from './electron';
 import { FUNCTION_KEY, LETTER_KEY } from './constants/shortcuts';
 import DB_NAME from './constants/db';
 const { port, host } = require('../electron/config');
@@ -56,6 +56,7 @@ function createWindow() {
     for (let key in DB_NAME) {
         AddDataBase(DB_NAME[key]);
     }
+    AddOpenFile();
 }
 
 app.on('ready', createWindow);

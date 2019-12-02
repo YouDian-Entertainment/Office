@@ -1,5 +1,5 @@
 // electron 相关的原生方法封装
-import { app, Notification, globalShortcut, Menu, ipcMain } from 'electron';
+import { app, Notification, globalShortcut, Menu, ipcMain, dialog } from 'electron';
 import path from 'path';
 import Datastore from 'nedb';
 
@@ -98,9 +98,26 @@ const AddDataBase = (name) => {
     });
 };
 
+const AddOpenFile = (extFilter) => {
+    ipcMain.on('open-file', (event, extFilter) => {
+        dialog.showOpenDialog({
+            title: '选择文件',
+            buttonLabel: '确认选择',
+            filters: [extFilter],
+            properties: ['openFile'],
+        }).then(result => {
+            const { filePaths, canceled } = result;
+            !canceled && event.sender.send('open-file-result', filePaths ? filePaths[0] : '');
+        }).catch(err => {
+            console.error(err);
+        });
+    });
+};
+
 module.exports = {
     Notic,
     AddShortcuts,
     AddMenuList,
     AddDataBase,
+    AddOpenFile,
 };

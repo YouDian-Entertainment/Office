@@ -59,7 +59,12 @@
     }
   },
   "dependencies": {
+    "csv-parse": "^4.8.2",
+    "docx": "^5.0.0-rc7",
+    "exceljs": "^3.4.0",
+    "file-type": "^12.4.0",
     "nedb": "^1.8.0",
+    "officegen": "^0.6.3",
     "v-contextmenu": "^2.8.1",
     "view-design": "^4.0.2",
     "vue": "^2.6.10",

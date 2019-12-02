@@ -1,5 +1,6 @@
 <template>
     <div class="v-home">
+        <Button>打开文件</Button>
         <Divider orientation="left">项目简介</Divider>
         <div class="desc">此项目为vet项目的iview模板，已实现iview的配置，可直接使用。</div>
         <Divider orientation="left">项目依赖项</Divider>
@@ -36,11 +37,12 @@
 </template>
 
 <script>
-import { Divider } from 'view-design';
+import { Divider, Button } from 'view-design';
 export default {
     name: 'Home',
     components: {
         Divider,
+        Button,
     },
 };
 </script>
