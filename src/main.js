@@ -28,7 +28,7 @@ function createWindow() {
         frame: false, // 不使用框架
         // // show: false, // 禁止显示
         fullscreenable: false,
-        titleBarStyle: 'hidden',
+        titleBarStyle: 'default',
         backgroundColor: 'none',
         webPreferences: {
             devTools: true,
@@ -46,12 +46,12 @@ function createWindow() {
     mainWindow.on('closed', () => {
         mainWindow = null;
     });
-    Notic('主进程提示', '打开成功');
+    // Notic('主进程提示', '打开成功');
     // 添加快捷键
-    AddShortcuts(`${FUNCTION_KEY[4]}+${FUNCTION_KEY[9]}+${LETTER_KEY[25]}`, () => {
-        Notic('快捷键提示', '绑定快捷键成功');
-    });
-    AddMenuList();
+    // AddShortcuts(`${FUNCTION_KEY[4]}+${FUNCTION_KEY[9]}+${LETTER_KEY[25]}`, () => {
+    //     Notic('快捷键提示', '绑定快捷键成功');
+    // });
+    // AddMenuList();
     // 添加数据库
     for (let key in DB_NAME) {
         AddDataBase(DB_NAME[key]);

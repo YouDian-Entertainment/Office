@@ -23,7 +23,7 @@ export const WORD_EXT_FILTER = {
 // Excel 文件
 export const EXCEL_EXT_FILTER = {
     name: 'Excel',
-    extensions: ['xls', 'xlsx', 'xlsm', 'xltx', 'xltm', 'xlsb', 'xlam'],
+    extensions: ['xls', 'xlsx', 'xlsm', 'xltx', 'xltm', 'xlsb', 'xlam', 'csv'],
 };
 // PPT 文件
 export const PPT_EXT_FILTER = {
