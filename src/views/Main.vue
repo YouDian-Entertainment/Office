@@ -10,16 +10,17 @@
         <br />
         内容: {{fileData}}
         <br />
+            <Table :columns="columnsVal" :data="[]"></Table>
             </Content>
         </Layout>
     </div>
 </template>
 
 <script>
-import { Layout, Header, Content, Button } from 'view-design';
+import { Layout, Header, Content, Button, Table } from 'view-design';
 import { openFile } from '@common/render';
 import { EXCEL_EXT_FILTER, WORD_EXT_FILTER } from '@constants/fileext';
-import { paseValue } from '@common/excel';
+import { paseValue, createColumns } from '@common/excel';
 export default {
     name: 'Main', // 主界面
     components: {
@@ -27,12 +28,18 @@ export default {
         Header,
         Content,
         Button,
+        Table,
     },
     data() {
         return {
             filePath: '',
             fileData: '',
+            columnsVal: [],
         };
+    },
+    mounted() {
+        const column = createColumns('A', 'AZ');
+        console.log('column:', column);
     },
     methods: {
         async openExcelFile() {
@@ -57,7 +64,23 @@ export default {
                 numberArray.push(parseInt(item.replace(/[A-Za-z]/g, '')));
             });
             console.log(numberArray);
+            console.log('letter', letter);
             console.log(Math.max(...numberArray));
+            const max = Math.max(...numberArray);
+            const column = createColumns('A', 'AZ');
+            console.log('column:', column);
+            this.columnsVal = [{
+                title: 'Name',
+                key: 'name'
+            },
+            {
+                title: 'Age',
+                key: 'age'
+            },
+            {
+                title: 'Address',
+                key: 'address'
+            }];
         },
         async openWordFile() {
             const res = await openFile(EXCEL_EXT_FILTER);
